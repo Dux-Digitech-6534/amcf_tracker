@@ -1,0 +1,366 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-18 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor_section",
+  "work_order",
+  "vendor",
+  "vendor_contact",
+  "vendor_col",
+  "vendor_phone",
+  "vendor_email",
+  "quotation_ref",
+  "wo_date",
+  "contract_type",
+  "assets_section",
+  "assets",
+  "assets_summary",
+  "period_section",
+  "start_date",
+  "end_date",
+  "remind_before_days",
+  "yearly_escalation_percent",
+  "period_col",
+  "value_excl_gst",
+  "gst_percent",
+  "total_incl_gst",
+  "payment_terms",
+  "service_section",
+  "visit_frequency",
+  "visits_per_year",
+  "extra_visit_charge",
+  "breakdown_response",
+  "service_col",
+  "scope",
+  "exclusions",
+  "notes",
+  "renewal_section",
+  "renewal_status",
+  "previous_contract",
+  "next_contract",
+  "renewal_col",
+  "contract_status",
+  "days_left",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor_section",
+   "fieldtype": "Section Break",
+   "label": "Work order and vendor"
+  },
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order Contract",
+   "options": "Work Order Contract",
+   "description": "Picking a work order fills the vendor, dates and amount; they stay editable."
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor",
+   "options": "Supplier",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "vendor_contact",
+   "fieldtype": "Data",
+   "label": "Vendor contact",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "vendor_col",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vendor_phone",
+   "fieldtype": "Data",
+   "label": "Vendor phone",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "vendor_email",
+   "fieldtype": "Data",
+   "label": "Vendor email",
+   "options": "Email",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "quotation_ref",
+   "fieldtype": "Data",
+   "label": "Quotation ref."
+  },
+  {
+   "fieldname": "wo_date",
+   "fieldtype": "Date",
+   "label": "WO date"
+  },
+  {
+   "fieldname": "contract_type",
+   "fieldtype": "Select",
+   "label": "Contract type",
+   "options": "\nComprehensive\nNon-comprehensive\nLabour only"
+  },
+  {
+   "fieldname": "assets_section",
+   "fieldtype": "Section Break",
+   "label": "Assets covered"
+  },
+  {
+   "fieldname": "assets",
+   "fieldtype": "Table",
+   "label": "Assets",
+   "options": "AMC Contract Asset",
+   "reqd": 1
+  },
+  {
+   "fieldname": "assets_summary",
+   "fieldtype": "Small Text",
+   "label": "Assets (summary)",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "period_section",
+   "fieldtype": "Section Break",
+   "label": "Period and value"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "remind_before_days",
+   "fieldtype": "Int",
+   "label": "Remind before (days)",
+   "default": "60",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "yearly_escalation_percent",
+   "fieldtype": "Percent",
+   "label": "Yearly escalation %"
+  },
+  {
+   "fieldname": "period_col",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "value_excl_gst",
+   "fieldtype": "Currency",
+   "label": "Value excl. GST",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gst_percent",
+   "fieldtype": "Percent",
+   "label": "GST %",
+   "default": "18"
+  },
+  {
+   "fieldname": "total_incl_gst",
+   "fieldtype": "Currency",
+   "label": "Total incl. GST",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Select",
+   "label": "Payment terms",
+   "options": "\n100% advance\nHalf yearly\nQuarterly\nMonthly\nOn completion"
+  },
+  {
+   "fieldname": "service_section",
+   "fieldtype": "Section Break",
+   "label": "Service terms"
+  },
+  {
+   "fieldname": "visit_frequency",
+   "fieldtype": "Select",
+   "label": "Visit frequency",
+   "options": "\nMonthly\nQuarterly\nHalf yearly\nYearly\nOn call"
+  },
+  {
+   "fieldname": "visits_per_year",
+   "fieldtype": "Int",
+   "label": "Visits per year"
+  },
+  {
+   "fieldname": "extra_visit_charge",
+   "fieldtype": "Currency",
+   "label": "Extra visit charge"
+  },
+  {
+   "fieldname": "breakdown_response",
+   "fieldtype": "Data",
+   "label": "Breakdown response"
+  },
+  {
+   "fieldname": "service_col",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Text",
+   "label": "Scope"
+  },
+  {
+   "fieldname": "exclusions",
+   "fieldtype": "Text",
+   "label": "Exclusions"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "renewal_section",
+   "fieldtype": "Section Break",
+   "label": "Renewal and status"
+  },
+  {
+   "fieldname": "renewal_status",
+   "fieldtype": "Select",
+   "label": "Renewal status",
+   "options": "Not started\nQuotation requested\nQuotation received\nWO issued\nRenewed\nNot renewing",
+   "default": "Not started",
+   "allow_on_submit": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "previous_contract",
+   "fieldtype": "Link",
+   "label": "Previous contract",
+   "options": "AMC Contract"
+  },
+  {
+   "fieldname": "next_contract",
+   "fieldtype": "Link",
+   "label": "Next contract",
+   "options": "AMC Contract",
+   "read_only": 1,
+   "no_copy": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "renewal_col",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_status",
+   "fieldtype": "Select",
+   "label": "Contract status",
+   "options": "\nUpcoming\nActive\nExpiring\nExpired",
+   "read_only": 1,
+   "no_copy": 1,
+   "allow_on_submit": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "days_left",
+   "fieldtype": "Int",
+   "label": "Days left",
+   "read_only": 1,
+   "no_copy": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "AMC Contract",
+   "read_only": 1,
+   "no_copy": 1,
+   "print_hide": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [
+  {
+   "group": "Maintenance",
+   "link_doctype": "AMC Visit",
+   "link_fieldname": "amc_contract"
+  }
+ ],
+ "modified": "2026-11-18 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "AMC Tracker",
+ "name": "AMC Contract",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "AMC Manager",
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Maintenance User",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Campus Viewer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "AMC-.YYYY.-.####",
+ "is_submittable": 1,
+ "track_changes": 1,
+ "title_field": "vendor",
+ "search_fields": "vendor,work_order,assets_summary"
+}

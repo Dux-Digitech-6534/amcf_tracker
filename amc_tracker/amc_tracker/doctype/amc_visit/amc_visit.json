@@ -1,0 +1,208 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-18 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "visit_section",
+  "asset",
+  "amc_contract",
+  "visit_type",
+  "visit_type_other",
+  "visit_col",
+  "status",
+  "planned_date",
+  "done_date",
+  "is_overdue",
+  "work_section",
+  "engineer",
+  "hours_on_site",
+  "extra_charge",
+  "service_report",
+  "work_col",
+  "work_done",
+  "parts_replaced",
+  "readings_remarks",
+  "next_action"
+ ],
+ "fields": [
+  {
+   "fieldname": "visit_section",
+   "fieldtype": "Section Break",
+   "label": "Visit"
+  },
+  {
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "label": "Asset",
+   "options": "AMC Asset",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "amc_contract",
+   "fieldtype": "Link",
+   "label": "AMC Contract",
+   "options": "AMC Contract",
+   "description": "Only contracts that cover the asset. Leave empty for a paid one-off visit."
+  },
+  {
+   "fieldname": "visit_type",
+   "fieldtype": "Select",
+   "label": "Visit type",
+   "options": "Preventive\nBreakdown\nInspection\nMembrane cleaning\nInstallation\nOther",
+   "default": "Preventive",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "visit_type_other",
+   "fieldtype": "Data",
+   "label": "Other visit type",
+   "depends_on": "eval:doc.visit_type=='Other'",
+   "mandatory_depends_on": "eval:doc.visit_type=='Other'"
+  },
+  {
+   "fieldname": "visit_col",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Planned\nDone\nMissed\nCancelled",
+   "default": "Planned",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "planned_date",
+   "fieldtype": "Date",
+   "label": "Planned date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "done_date",
+   "fieldtype": "Date",
+   "label": "Done date"
+  },
+  {
+   "fieldname": "is_overdue",
+   "fieldtype": "Check",
+   "label": "Overdue",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "work_section",
+   "fieldtype": "Section Break",
+   "label": "Work record"
+  },
+  {
+   "fieldname": "engineer",
+   "fieldtype": "Data",
+   "label": "Engineer"
+  },
+  {
+   "fieldname": "hours_on_site",
+   "fieldtype": "Float",
+   "label": "Hours on site"
+  },
+  {
+   "fieldname": "extra_charge",
+   "fieldtype": "Currency",
+   "label": "Extra charge"
+  },
+  {
+   "fieldname": "service_report",
+   "fieldtype": "Attach",
+   "label": "Service report"
+  },
+  {
+   "fieldname": "work_col",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "work_done",
+   "fieldtype": "Text",
+   "label": "Work done"
+  },
+  {
+   "fieldname": "parts_replaced",
+   "fieldtype": "Text",
+   "label": "Parts replaced"
+  },
+  {
+   "fieldname": "readings_remarks",
+   "fieldtype": "Text",
+   "label": "Readings / remarks",
+   "description": "For example TDS, pH, hour meter"
+  },
+  {
+   "fieldname": "next_action",
+   "fieldtype": "Text",
+   "label": "Next action"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-18 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "AMC Tracker",
+ "name": "AMC Visit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "AMC Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Maintenance User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Campus Viewer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "VIS-.YYYY.-.#####",
+ "track_changes": 1,
+ "search_fields": "asset,visit_type,engineer"
+}

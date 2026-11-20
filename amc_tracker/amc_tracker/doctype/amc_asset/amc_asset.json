@@ -1,0 +1,337 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-18 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "identity_section",
+  "asset_name",
+  "asset_type",
+  "asset_type_other",
+  "capacity",
+  "make",
+  "model",
+  "serial_no",
+  "identity_col",
+  "campus",
+  "site_building",
+  "exact_location",
+  "asset_status",
+  "purchase_section",
+  "supplier",
+  "purchase_order",
+  "purchase_invoice",
+  "purchase_col",
+  "purchase_date",
+  "installation_date",
+  "purchase_cost",
+  "expected_life_years",
+  "erpnext_asset",
+  "warranty_section",
+  "warranty_start",
+  "warranty_end",
+  "warranty_col",
+  "warranty_provider",
+  "warranty_terms",
+  "computed_section",
+  "warranty_status",
+  "current_amc",
+  "amc_status",
+  "amc_days_left",
+  "computed_col",
+  "last_visit_date",
+  "next_visit_date",
+  "total_cost_of_ownership"
+ ],
+ "fields": [
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Identity"
+  },
+  {
+   "fieldname": "asset_name",
+   "fieldtype": "Data",
+   "label": "Asset name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "asset_type",
+   "fieldtype": "Select",
+   "label": "Asset type",
+   "reqd": 1,
+   "options": "Lift / Elevator\nRO / Water Treatment\nDG Set\nHVAC / AC\nFire Fighting\nCCTV / Security\nElectrical / Transformer\nUPS / Inverter\nPumps\nIT / Networking\nLab Equipment\nOther",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "asset_type_other",
+   "fieldtype": "Data",
+   "label": "Other asset type",
+   "depends_on": "eval:doc.asset_type=='Other'",
+   "mandatory_depends_on": "eval:doc.asset_type=='Other'"
+  },
+  {
+   "fieldname": "capacity",
+   "fieldtype": "Data",
+   "label": "Capacity"
+  },
+  {
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "label": "Make"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "serial_no",
+   "fieldtype": "Data",
+   "label": "Serial no."
+  },
+  {
+   "fieldname": "identity_col",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "campus",
+   "fieldtype": "Link",
+   "label": "Campus",
+   "options": "Company",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "site_building",
+   "fieldtype": "Data",
+   "label": "Site / building"
+  },
+  {
+   "fieldname": "exact_location",
+   "fieldtype": "Data",
+   "label": "Exact location"
+  },
+  {
+   "fieldname": "asset_status",
+   "fieldtype": "Select",
+   "label": "Asset status",
+   "options": "In use\nStandby\nUnder repair\nRetired",
+   "default": "In use",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "purchase_section",
+   "fieldtype": "Section Break",
+   "label": "Purchase"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "label": "Purchase Order",
+   "options": "Purchase Order"
+  },
+  {
+   "fieldname": "purchase_invoice",
+   "fieldtype": "Link",
+   "label": "Purchase Invoice",
+   "options": "Purchase Invoice"
+  },
+  {
+   "fieldname": "purchase_col",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase date"
+  },
+  {
+   "fieldname": "installation_date",
+   "fieldtype": "Date",
+   "label": "Installation date"
+  },
+  {
+   "fieldname": "purchase_cost",
+   "fieldtype": "Currency",
+   "label": "Purchase cost"
+  },
+  {
+   "fieldname": "expected_life_years",
+   "fieldtype": "Float",
+   "label": "Expected life (years)"
+  },
+  {
+   "fieldname": "erpnext_asset",
+   "fieldtype": "Link",
+   "label": "ERPNext Asset",
+   "options": "Asset",
+   "description": "Optional link to the Asset record in ERPNext"
+  },
+  {
+   "fieldname": "warranty_section",
+   "fieldtype": "Section Break",
+   "label": "Warranty"
+  },
+  {
+   "fieldname": "warranty_start",
+   "fieldtype": "Date",
+   "label": "Warranty start"
+  },
+  {
+   "fieldname": "warranty_end",
+   "fieldtype": "Date",
+   "label": "Warranty end"
+  },
+  {
+   "fieldname": "warranty_col",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "warranty_provider",
+   "fieldtype": "Data",
+   "label": "Warranty provider"
+  },
+  {
+   "fieldname": "warranty_terms",
+   "fieldtype": "Small Text",
+   "label": "Warranty terms"
+  },
+  {
+   "fieldname": "computed_section",
+   "fieldtype": "Section Break",
+   "label": "AMC and visits"
+  },
+  {
+   "fieldname": "warranty_status",
+   "fieldtype": "Select",
+   "label": "Warranty status",
+   "options": "\nUnder warranty\nExpiring\nExpired\nNot recorded",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "current_amc",
+   "fieldtype": "Link",
+   "label": "Current AMC",
+   "options": "AMC Contract",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "amc_status",
+   "fieldtype": "Select",
+   "label": "AMC status",
+   "options": "\nActive\nExpiring\nExpired\nNo AMC\nUpcoming",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "amc_days_left",
+   "fieldtype": "Int",
+   "label": "AMC days left",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "computed_col",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_visit_date",
+   "fieldtype": "Date",
+   "label": "Last visit date",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "next_visit_date",
+   "fieldtype": "Date",
+   "label": "Next visit date",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "total_cost_of_ownership",
+   "fieldtype": "Currency",
+   "label": "Total cost of ownership",
+   "read_only": 1,
+   "no_copy": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [
+  {
+   "group": "Maintenance",
+   "link_doctype": "AMC Visit",
+   "link_fieldname": "asset"
+  }
+ ],
+ "modified": "2026-11-18 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "AMC Tracker",
+ "name": "AMC Asset",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "AMC Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Maintenance User",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Campus Viewer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "AST-.###",
+ "track_changes": 1,
+ "title_field": "asset_name",
+ "show_title_field_in_link": 1,
+ "search_fields": "asset_name,asset_type,campus,serial_no"
+}

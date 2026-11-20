@@ -1,0 +1,19 @@
+[project]
+name = "amc_tracker"
+authors = [
+    { name = "Dux Digitech", email = "durgesh.joshi@thesvsgroup.org"}
+]
+description = "Annual maintenance contracts, warranty and service visits for maintained assets"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    # "frappe~=15.0.0" # Installed and managed by bench.
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.bench.frappe-dependencies]
+frappe = ">=15.0.0-dev,<17.0.0-dev"
